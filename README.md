@@ -2,6 +2,13 @@
 
   is a small prototype for counting situps, squats and pushups with Arduino Nano 33 BLE sense
   
+  
+  
+
+https://user-images.githubusercontent.com/57222054/125252036-38f0bd00-e2f8-11eb-85eb-2af83ffefcec.mp4
+
+
+  
 ## Status
  
   Work in progress, the machine learning model is not quite reliable and only half of the counter is currently fuctioning.
