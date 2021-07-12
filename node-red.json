@@ -1,0 +1,219 @@
+[
+  {
+    "id": "5c6f5520.fa835c",
+    "type": "tab",
+    "label": "Flow 1",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "4dd1c868.1294d8",
+    "type": "ui_text",
+    "z": "5c6f5520.fa835c",
+    "group": "820da288.a5c67",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Situps:",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "x": 1190,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "4e8408af.8d3878",
+    "type": "ui_text",
+    "z": "5c6f5520.fa835c",
+    "group": "820da288.a5c67",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Pushups:",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "x": 1220,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "a535b14d.1baac",
+    "type": "ui_text",
+    "z": "5c6f5520.fa835c",
+    "group": "820da288.a5c67",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Squats:",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "x": 1180,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "eac02de7.e5c14",
+    "type": "websocket in",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "server": "",
+    "client": "69170e9d.5c737",
+    "x": 240,
+    "y": 400,
+    "wires": [
+      [
+        "a94a99c8.f9a758"
+      ]
+    ]
+  },
+  {
+    "id": "a87862bf.f47fc",
+    "type": "switch",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "cont",
+        "v": "squat",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "pushup",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "situp",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 3,
+    "x": 750,
+    "y": 480,
+    "wires": [
+      [
+        "9804db77.f57278"
+      ],
+      [
+        "9dd3405c.5c0e7"
+      ],
+      [
+        "9b71a0a.685cc6"
+      ]
+    ]
+  },
+  {
+    "id": "9804db77.f57278",
+    "type": "function",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "func": "var count=context.get('count') || 0;\ncount +=1;\nmsg.payload=count;\ncontext.set('count',count);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 1010,
+    "y": 440,
+    "wires": [
+      [
+        "a535b14d.1baac"
+      ]
+    ]
+  },
+  {
+    "id": "9dd3405c.5c0e7",
+    "type": "function",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "func": "var count=context.get('count') || 0;\ncount +=1;\nmsg.payload=count;\ncontext.set('count',count);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 1030,
+    "y": 500,
+    "wires": [
+      [
+        "4e8408af.8d3878"
+      ]
+    ]
+  },
+  {
+    "id": "90dd5507.167ac8",
+    "type": "function",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "func": "var count=context.get('count') || 0;\ncount +=1;\nmsg.payload=count;\ncontext.set('count',count);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 1030,
+    "y": 500,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "9b71a0a.685cc6",
+    "type": "function",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "func": "var count=context.get('count') || 0;\ncount +=1;\nmsg.payload=count;\ncontext.set('count',count);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 1010,
+    "y": 560,
+    "wires": [
+      [
+        "4dd1c868.1294d8"
+      ]
+    ]
+  },
+  {
+    "id": "a94a99c8.f9a758",
+    "type": "function",
+    "z": "5c6f5520.fa835c",
+    "name": "",
+    "func": "const temp = JSON.parse(msg.payload)\nmsg.payload = temp.payload[0]\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 530,
+    "y": 460,
+    "wires": [
+      [
+        "a87862bf.f47fc"
+      ]
+    ]
+  },
+  {
+    "id": "820da288.a5c67",
+    "type": "ui_group",
+    "z": "",
+    "name": "Default",
+    "tab": "b70e0e25.6369c",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "69170e9d.5c737",
+    "type": "websocket-client",
+    "z": "",
+    "path": "ws://localhost:8082",
+    "tls": "",
+    "wholemsg": "false"
+  },
+  {
+    "id": "b70e0e25.6369c",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Home",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  }
+]
