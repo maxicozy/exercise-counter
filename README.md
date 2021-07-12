@@ -7,6 +7,11 @@
 
 https://user-images.githubusercontent.com/57222054/125252036-38f0bd00-e2f8-11eb-85eb-2af83ffefcec.mp4
 
+# One-pager
+
+[machinelearning - Frame 2.pdf](https://github.com/maxicozy/exercise-counter/files/6800085/machinelearning.-.Frame.2.pdf)
+
+
 
   
 ## Status
