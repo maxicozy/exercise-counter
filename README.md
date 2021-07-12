@@ -1,1 +1,1 @@
-## exercise-counter
+# exercise-counter
